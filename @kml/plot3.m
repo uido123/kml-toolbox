@@ -78,7 +78,7 @@ function target = plot3(this,long,lat,alt,varargin)
     linestyle.appendChild(this.textNode('width',num2str(arg.lineWidth)));
     
     polystyle.appendChild(this.textNode('color',arg.polyColor));
-    polystyle.appendChild(this.textNode('fill', arg.polyFill));
+    polystyle.appendChild(this.textNode('fill',num2str(arg.polyFill)));
     
     linestring.setAttribute('id',['LineString_' arg.id]);
     linestring.appendChild(this.textNode('extrude',num2str(arg.extrude)));

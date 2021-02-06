@@ -21,6 +21,7 @@ function target = poly3(this,long,lat,alt,varargin)
     p.addParamValue('visibility',true,@islogical);
     p.addParamValue('lineColor','FFFFFFFF',@(a)ischar(a) && numel(a)==8);
     p.addParamValue('polyColor','FFFFFFFF',@(a)ischar(a) && numel(a)==8);
+    p.addParamValue('polyFill',1,@(a)isnumeric(a) && numel(a)==1);
     p.addParamValue('lineWidth',1,@(a)isnumeric(a) && numel(a)==1);
     p.addParamValue('altitudeMode','relativeToGround',@(a)ismember(a,{'clampToGround','relativeToGround','absolute'}));
     p.addParamValue('extrude',false,@islogical);
@@ -75,6 +76,7 @@ function target = poly3(this,long,lat,alt,varargin)
     linestyle.appendChild(this.textNode('width',num2str(arg.lineWidth)));
     
     polystyle.appendChild(this.textNode('color',arg.polyColor));
+    polystyle.appendChild(this.textNode('fill',num2str(arg.polyFill)));
     
     linearring.setAttribute('id',['LinearRing_' arg.id]);
     linearring.appendChild(this.textNode('coordinates',coordinates));
