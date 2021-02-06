@@ -23,6 +23,7 @@ function target = plot3(this,long,lat,alt,varargin)
     p.addParamValue('lineColor','FFFFFFFF',@(a)ischar(a) && numel(a)==8);
     p.addParamValue('polyColor','00FFFFFF',@(a)ischar(a) && numel(a)==8);
     p.addParamValue('lineWidth',1,@(a)isnumeric(a) && numel(a)==1);
+    p.addParamValue('polyFill',1,@(a)isnumeric(a) && numel(a)==1);
     p.addParamValue('altitudeMode','relativeToGround',@(a)ismember(a,{'clampToGround','relativeToGround','absolute'}));
     p.addParamValue('extrude',false,@islogical);
     p.addParamValue('tessellate',true,@islogical);
@@ -77,6 +78,7 @@ function target = plot3(this,long,lat,alt,varargin)
     linestyle.appendChild(this.textNode('width',num2str(arg.lineWidth)));
     
     polystyle.appendChild(this.textNode('color',arg.polyColor));
+    polystyle.appendChild(this.textNode('fill', arg.polyFill));
     
     linestring.setAttribute('id',['LineString_' arg.id]);
     linestring.appendChild(this.textNode('extrude',num2str(arg.extrude)));
